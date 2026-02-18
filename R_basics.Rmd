@@ -1,0 +1,73 @@
+---
+title: "Class 02: R Intro"
+author: "Amanda White"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: TRUE
+    toc_float: TRUE
+    number_sections: FALSE
+    code_folding: show
+    code_download: TRUE
+    theme: united
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment
+
+R has three assignment operators:
+
+- `->`
+- `=`
+- `<-`
+
+```{r assignments}
+x1 <- 5
+x2 = 5
+7 -> x3
+
+
+cat("The value of x1 is:", x1)
+```
+
+## Atomic Vectors
+
+Atomic vectors are one-dimensional data structures where all values in them have to have the same data type
+
+```{r atomic, results='hold'}
+
+mixed_vector <- c('ISA' , 401)
+
+mixed_num <- c(401L, 3.14159) #the 'L' means that you are making the integer a double
+
+typeof(mixed_vector)
+typeof(mixed_num)
+```
+
+From this output, if you have multiple data types, R will use the most general representation of them. 
+
+
+## Lists
+
+Subsetting a list is one of the most common sources of errors in this class.
+
+```{r}
+list1 <- list( # list constructor/creator
+  1:3, # atomic double/numeric vector  of length = 3
+  "a", # atomic character vector of length = 1 (aka scalar)
+  c(TRUE, FALSE, TRUE), # atomic logical vector of length = 3
+  c(2.3, 5.9) # atomic double/numeric vector of length =3
+)
+list1 # printing the list
+
+from_list_to_sublist1 <- list1[1]
+from_list_to_sublist3 <- list1[3]
+
+from_list_to_underlying_structure <- list1[[2]]
+```
+
+
+
